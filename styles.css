@@ -30,7 +30,8 @@ body {
     border: 1px solid #E5E7EB;
     border-radius: 8px;
     font-size: 50px;
-    overflow-x: auto
+    overflow-x: auto;
+    box-shadow: 3px 5px 5px 0px rgba(0,0,0,0.5);
 }
 
 .button_row {
@@ -60,6 +61,7 @@ body {
     border: 1px solid #E5E7EB;
     border-radius: 8px;
     cursor: pointer;
+    box-shadow: 3px 5px 5px 0px rgba(0,0,0,0.5);
 }
 
 .clear,

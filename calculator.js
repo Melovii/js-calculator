@@ -7,16 +7,16 @@ let currentInput = '';
 const currentOperation = document.querySelector('.currentOperation');
 const lastOperation = document.querySelector('.lastOperation');
 
-// const allButtons = document.querySelector('.btn');
-// allButtons.forEach(button => {
-//     button.addEventListener('mouseenter', () => {
-//         button.style.backgroundColor = '#232c39';
-//     })
-//
-//     button.addEventListener('mouseleave', () => {
-//         button.style.backgroundColor = '#1F2937';
-//     })
-// })
+const allButtons = document.querySelectorAll('.btn');
+allButtons.forEach(button => {
+    button.onmouseenter = () => {
+        button.style.backgroundColor = 'rgba(35,39,57,0.68)';
+    }
+
+    button.onmouseleave = () => {
+        button.style.backgroundColor = '#1F2937';
+    }
+})
 
 const equalButton = document.querySelector('.equals');
 equalButton.addEventListener('click', () => {
