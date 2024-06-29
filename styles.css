@@ -30,6 +30,12 @@ body {
     border: 1px solid #E5E7EB;
     border-radius: 8px;
     font-size: 50px;
+    overflow-x: auto
+}
+
+.button_row {
+    display: flex;
+    gap: 10px;
 }
 
 .lastOperation {
@@ -39,7 +45,8 @@ body {
 .gridButton {
     display: flex;
     flex-wrap: wrap;
-    /*gap: 20px*/
+    flex-direction: column;
+    gap: 10px;
     width: 100%;
 }
 

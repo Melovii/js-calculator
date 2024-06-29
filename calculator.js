@@ -7,6 +7,17 @@ let currentInput = '';
 const currentOperation = document.querySelector('.currentOperation');
 const lastOperation = document.querySelector('.lastOperation');
 
+// const allButtons = document.querySelector('.btn');
+// allButtons.forEach(button => {
+//     button.addEventListener('mouseenter', () => {
+//         button.style.backgroundColor = '#232c39';
+//     })
+//
+//     button.addEventListener('mouseleave', () => {
+//         button.style.backgroundColor = '#1F2937';
+//     })
+// })
+
 const equalButton = document.querySelector('.equals');
 equalButton.addEventListener('click', () => {
     operand1 = parseFloat(lastOperation.textContent.trim().slice(0, -1));
@@ -14,7 +25,13 @@ equalButton.addEventListener('click', () => {
     op = lastOperation.textContent.trim().slice(-1);
 
     result = operate(operand1, operand2, op);
-    currentInput = result;
+    if (Number.isInteger(result)) {
+        result = result.toString(); // Avoid decimals
+    } else {
+        result = result.toFixed(2); // Limit decimals for non-integers
+    }
+
+    currentInput = result.padStart(currentInput.length, '0');
     currentOperation.textContent = currentInput;
     lastOperation.textContent += ` ${operand2} =`;
     console.log(`operand 1: ${operand1}, operator: ${op}, operand 2: ${operand2}`);
@@ -40,6 +57,15 @@ numberButtons.forEach(button => {
         currentOperation.textContent = currentInput;
     });
 });
+
+const decimalButton = document.querySelector('.decimal');
+decimalButton.addEventListener('click', () => {
+    if (currentInput.includes('.')) {
+    } else {
+        currentInput = `${currentInput}.`;
+        currentOperation.textContent = currentInput;
+    }
+})
 
 const operatorButtons = document.querySelectorAll('.operator');
 operatorButtons.forEach(button => {
